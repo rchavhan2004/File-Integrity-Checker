@@ -1,30 +1,27 @@
 import hashlib
 import os
 
-def calculate_hash(file_path):
-    hasher = hashlib.sha256()
-    try:
-        with open(file_path, 'rb') as f:
-            while chunk := f.read(8192):
-                hasher.update(chunk)
-        return hasher.hexdigest()
-    except FileNotFoundError:
-        print(f"File not found: {file_path}")
-        return None
+def calculate_sha256(filepath):
+    sha256_hash = hashlib.sha256()
+    with open(filepath, "rb") as f:
+        while True:
+            data = f.read(65536)
+            if not data:
+                break
+            sha256_hash.update(data)
+    return sha256_hash.hexdigest()
 
-def check_file_integrity(original_file, modified_file):
-    original_hash = calculate_hash(original_file)
-    modified_hash = calculate_hash(modified_file)
+def check_integrity(directory_path):
+    if not os.path.exists(directory_path) or not os.path.isdir(directory_path):
+        print(f"Directory '{directory_path}' does not exist or is not a directory")
+        return
 
-    if original_hash and modified_hash:
-        if original_hash == modified_hash:
-            print("Files are identical.")
-        else:
-            print("Files have been modified.")
-    else:
-        print("Unable to calculate hash for one or both files.")
+    for root, dirs, files in os.walk(directory_path):
+        for filename in files:
+            filepath = os.path.join(root, filename)
+            calculated_hash = calculate_sha256(filepath)
+            print(f"File: {filepath}\nSHA-256 HASH: {calculated_hash}")
 
-# Example usage
-original_file_path = 'path_to_original_file.txt'
-modified_file_path = 'path_to_modified_file.txt'
-check_file_integrity(original_file_path, modified_file_path)
+if __name__ == "__main__":
+    directory_to_check = input("Enter the directory path: ")
+    check_integrity(directory_to_check)

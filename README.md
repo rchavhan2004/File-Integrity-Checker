@@ -1,15 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-</head>
-<body>
-
-<h1 align="center">🔐 File Integrity Checker</h1>
+# 🔐 File Integrity Checker</h1>
 
 <p align="center">
-  <img src="https://cdn-icons-png.flaticon.com/512/109/109618.png" alt="File Integrity Icon" width="120">
+  <img src="https://cdn-icons-png.flaticon.com/512/2917/2917995.png" alt="File Integrity Icon" width="120">
 </p>
 
 <p align="center">
@@ -82,7 +74,7 @@ SHA-256 HASH: c5c5e6a69e9e8f034cb5a67dcf0c0c2d484d3ec63df19c38e4a6ed3f4384c11b</
 </p>
 
 <p align="center">
-  <img src="![oracle-data-integrator](https://github.com/user-attachments/assets/86229ae6-03c5-4cd7-a592-26bcc4bf59b8)" alt="Secure Icon" width="80">
+  <img src="https://github.com/user-attachments/assets/4d3ca049-9d98-4490-933e-576e683792c7" alt="Secure Icon" width="80">
 </p>
 
 </body>
